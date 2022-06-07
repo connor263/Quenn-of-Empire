@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Quenn of Empire</string>
+    <string name="correct_app_name">Queen of Empire</string>
+
+    <string name="one_signal_key">79113415-2fa6-4a28-94f9-5d8aa237c86e</string>
+    <string name="apps_dev_key">RkNwakGADggmH5ZYUugLL7</string>
+    <string name="fb_app_id">1197504111000850</string>
+    <string name="fb_at">uDbYUQtrltM2ZzlRJ06I-rZI908</string>
+</resources>
