@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.samsung.android.sclou.ui.game.components.QuennBackButton
-import com.samsung.android.sclou.utils.game.randomDecalId
+import com.samsung.android.sclou.utils.randomDecalId
 import kotlinx.coroutines.launch
 
 @Composable

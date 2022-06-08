@@ -4,8 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.samsung.android.sclou.data.model.ScoreModel
-import com.samsung.android.sclou.interfaces.ScoreRepository
+import com.samsung.android.sclou.data.model.game.ScoreModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao

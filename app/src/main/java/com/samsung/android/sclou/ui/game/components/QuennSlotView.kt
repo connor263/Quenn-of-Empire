@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.samsung.android.sclou.R
-import com.samsung.android.sclou.data.model.QuennSlotModel
+import com.samsung.android.sclou.data.model.game.QuennSlotModel
 import com.samsung.android.sclou.ui.game.slot.SlotViewModel
 import com.samsung.android.sclou.utils.game.SLOT_BOARD_ROWS
 import com.samsung.android.sclou.utils.game.SLOT_VIEW_ANIM_DURATION

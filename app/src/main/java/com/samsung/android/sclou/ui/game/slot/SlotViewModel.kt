@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.samsung.android.sclou.data.model.QuennSlotModel
-import com.samsung.android.sclou.data.model.ResultModel
+import com.samsung.android.sclou.data.model.game.QuennSlotModel
+import com.samsung.android.sclou.data.model.game.ResultModel
 import com.samsung.android.sclou.data.source.local.repo.ResultsRepositoryImpl
 import com.samsung.android.sclou.data.source.local.repo.ScoreRepositoryImpl
 import com.samsung.android.sclou.di.module.IODispatcher

@@ -2,6 +2,7 @@ package com.samsung.android.sclou.di.module
 
 import android.app.Application
 import androidx.room.Room
+import com.samsung.android.sclou.data.dao.CaccocosungandroidsclouinkDao
 import com.samsung.android.sclou.data.dao.ResultsDao
 import com.samsung.android.sclou.data.dao.ScoreDao
 import com.samsung.android.sclou.data.source.local.QuennOfEmpireDatabase
@@ -22,9 +23,13 @@ object QuennOfEmpireDatabaseModule {
 
     @Provides
     @Singleton
-    fun provideScoreDao(db:QuennOfEmpireDatabase):ScoreDao = db.getScoreDao()
+    fun provideScoreDao(db: QuennOfEmpireDatabase): ScoreDao = db.getScoreDao()
 
     @Provides
     @Singleton
-    fun provideResultsDao(db:QuennOfEmpireDatabase):ResultsDao = db.getResultsDao()
+    fun provideResultsDao(db: QuennOfEmpireDatabase): ResultsDao = db.getResultsDao()
+
+    @Provides
+    @Singleton
+    fun providemcomsamsdsclouandroikDao(db: QuennOfEmpireDatabase): CaccocosungandroidsclouinkDao = db.getmcomsamsdsclouandroikDao()
 }
