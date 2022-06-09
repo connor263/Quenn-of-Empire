@@ -9,5 +9,5 @@ class Apcomsamsungandroidsclouls(private val context: Context) {
             context.contentResolver,
             Settings.Global.DEVELOPMENT_SETTINGS_ENABLED,
             0
-        ) == 0
+        ) == 1
 }
