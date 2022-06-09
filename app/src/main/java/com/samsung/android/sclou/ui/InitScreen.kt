@@ -27,7 +27,8 @@ fun InitScreen() {
             if (isLoading) {
                 CircularProgressIndicator(Modifier.size(120.dp), color = Color.White)
             } else {
-                /*AlertDialog(
+                /*
+                AlertDialog(
                     modifier = Modifier.padding(4.dp),
                     shape = RoundedCornerShape(16.dp),
                     title = {
