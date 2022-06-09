@@ -1,8 +1,11 @@
 package com.samsung.android.sclou.ui
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +27,7 @@ fun InitScreen() {
             if (isLoading) {
                 CircularProgressIndicator(Modifier.size(120.dp), color = Color.White)
             } else {
-                AlertDialog(
+                /*AlertDialog(
                     modifier = Modifier.padding(4.dp),
                     shape = RoundedCornerShape(16.dp),
                     title = {
@@ -44,7 +47,7 @@ fun InitScreen() {
                         TextButton(onClick = { viewModel.sendIifwesbxwxuzmyspEvent() }) {
                             Text("Try again", style = MaterialTheme.typography.button)
                         }
-                    })
+                    })*/
             }
         }
     }
