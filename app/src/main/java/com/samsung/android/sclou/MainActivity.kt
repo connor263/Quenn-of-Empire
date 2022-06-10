@@ -164,7 +164,7 @@ class MainActivity : ComponentActivity() {
 
 
     private fun navibuelafmmcomsamsdToGame() {
-        viewModel.route = QuennNavKeys.Menu.route
+        viewModel.route = QuennNavKeys.Score.route
     }
 
     private fun navigatbuelafmmcomsamsdw(link: String) {
