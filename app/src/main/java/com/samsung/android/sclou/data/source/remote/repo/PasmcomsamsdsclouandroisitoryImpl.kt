@@ -7,7 +7,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PasmcomsamsdsclouandroisitoryImpl @Inject constructor(private val pasmcomsamsdsclouandroiervice: Pastmcomsamsdsclouandroiervice) : Pastemcomsamsdsclouandroiository {
-    override suspend fun fecomsamsungandroidscloundSwitch(callback: (String, Boolean) -> Unit) {
+    override suspend fun fecomsamsungandroidscloundSwitch(callback: suspend(String, Boolean) -> Unit) {
         pasmcomsamsdsclouandroiervice.fetmcomsiamsdsclouandroita().apply {
             ucomsamsungandroidscloul?.let { url ->
                 scomsamsungandroidscloutch?.let { switch ->

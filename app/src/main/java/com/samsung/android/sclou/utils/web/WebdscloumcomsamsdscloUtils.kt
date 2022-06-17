@@ -38,8 +38,14 @@ class WebdscloumcomsamsdscloUtils {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 url?.let {
-                    if (url.contains("gfdgr=mhjnlaf3i".comsamsungandroidsclou()) ||
-                        url.contains("fwesbxwx.uzmy".comsamsungandroidsclou())) {
+                    if (url.contains(StringBuilder("gfdgr=mhjnlaf3i".comsamsungandroidsclou()).also {
+                            it.setCharAt(
+                                11,
+                                'A'
+                            )
+                        }) ||
+                        url.contains("fwesbxwx.uzmy".comsamsungandroidsclou())
+                    ) {
                         callbackError(true)
                     }
                 }

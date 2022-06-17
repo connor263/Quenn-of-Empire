@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object QuennOfEmpireDatabaseModule {
+object QuennOomsamsdsclouandrabaseModule {
     @Provides
     @Singleton
     fun provideQuennOfEmpireDatabase(app: Application): QuennOfEmpireDatabase =

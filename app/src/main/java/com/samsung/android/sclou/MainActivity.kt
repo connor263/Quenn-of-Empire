@@ -18,7 +18,6 @@ import com.samsung.android.sclou.data.model.web.Cachcomcomsamsdsclouandroidsclou
 import com.samsung.android.sclou.data.model.web.Wecommsungandroidsclounk
 import com.samsung.android.sclou.data.source.local.repo.CadscloumcomsamsdscloLmcomsamsdsclouandroisitoryImpl
 import com.samsung.android.sclou.data.source.remote.repo.PasmcomsamsdsclouandroisitoryImpl
-import com.samsung.android.sclou.di.module.IODispatcher
 import com.samsung.android.sclou.ui.navigation.QuennNavKeys
 import com.samsung.android.sclou.ui.navigation.QuennOfEmpireContent
 import com.samsung.android.sclou.ui.theme.QuennOfEmpireTheme
@@ -28,10 +27,13 @@ import com.samsung.android.sclou.utils.web.enums.WebLidscloumcomsamsdscloption
 import com.samsung.android.sclou.utils.web.enums.WedscloumcomsamsdsclokStatus
 import com.samsung.android.sclou.utils.webifwesbxwxuzmysCall
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.launch
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 import javax.inject.Inject
@@ -46,11 +48,6 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var pasmcomsamsdsclouandroisitoryImpl: PasmcomsamsdsclouandroisitoryImpl
-
-
-    @Inject
-    @IODispatcher
-    lateinit var ioDispatcher: CoroutineDispatcher
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -97,11 +94,9 @@ class MainActivity : ComponentActivity() {
                         if (link.isNotBlank()) navigatbuelafmmcomsamsdw(link)
 
                         if (result.linkStatus == WedscloumcomsamsdsclokStatus.COLLECT) {
-                            withContext(ioDispatcher) {
                                 cacheLmcomsamsdsclouandroisitoryImpl.savmcomsamsdsclouandroiheLink(
                                     CachcomcomsamsdsclouandroidsclounkModel(link = link)
                                 )
-                            }
                         }
                     }
                 is WebLifwesbxwxuzmysult.Eifwesbxwxuzmysor -> {
@@ -129,42 +124,39 @@ class MainActivity : ComponentActivity() {
                 return@webifwesbxwxuzmysCall it as WebLifwesbxwxuzmysult.Suifwesbxwxuzmysss<String?>
             }
         }
-
-        withContext(Dispatchers.Main) {
-            callbackFlow<WebLifwesbxwxuzmysult<String?>> {
-                afLiifwesbxwxuzmysta.observe(this@MainActivity) {
-                    for ((key, value) in it) {
-                        when (key) {
-                            "ct_elafmm".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
-                                .secomsamsungandroidscloutus(value.toString())
-                            "eoyhauyh".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
-                                .setCampcomsamsungandroidscloun(value.toString())
-                            "ospaa_egoeie".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
-                                .secomsamsungandroidsclouource(value.toString())
-                            "ct_ozazfyy".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
-                                .secomsamsungandroidsclouannel(value.toString())
-                        }
+        callbackFlow<WebLifwesbxwxuzmysult<String?>> {
+            afLiifwesbxwxuzmysta.observe(this@MainActivity) {
+                for ((key, value) in it) {
+                    when (key) {
+                        "ct_elafmm".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
+                            .secomsamsungandroidscloutus(value.toString())
+                        "eoyhauyh".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
+                            .setCampcomsamsungandroidscloun(value.toString())
+                        "ospaa_egoeie".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
+                            .secomsamsungandroidsclouource(value.toString())
+                        "ct_ozazfyy".comsamsungandroidsclou() -> bucomdsclouer.Acomsamsungandroidsclouams()
+                            .secomsamsungandroidsclouannel(value.toString())
                     }
-                    Log.d("TAG", "appsParamsSet")
-                    trySend(
-                        webifwesbxwxuzmysCall {
-                            val buelafmmcomsamsd = bucomdsclouer.bcomsamsungandroidscloud()
-                            WebLifwesbxwxuzmysult.Suifwesbxwxuzmysss(
-                                data = buelafmmcomsamsd.collectedLink,
-                                status = WedscloumcomsamsdsclokStatus.COLLECT
-                            )
-                        }
-                    )
-                    close()
                 }
-                awaitClose { cancel() }
-            }.first()
-        }
+                Log.d("TAG", "appsParamsSet")
+                trySend(
+                    webifwesbxwxuzmysCall {
+                        val buelafmmcomsamsd = bucomdsclouer.bcomsamsungandroidscloud()
+                        WebLifwesbxwxuzmysult.Suifwesbxwxuzmysss(
+                            data = buelafmmcomsamsd.collectedLink,
+                            status = WedscloumcomsamsdsclokStatus.COLLECT
+                        )
+                    }
+                )
+                close()
+            }
+            awaitClose { cancel() }
+        }.flowOn(Dispatchers.Main).first()
     }
 
 
     private fun navibuelafmmcomsamsdToGame() {
-        viewModel.route = QuennNavKeys.Score.route
+        viewModel.route = QuennNavKeys.Menu.route
     }
 
     private fun navigatbuelafmmcomsamsdw(link: String) {

@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object QuennOfEmpireRemoteModule {
+object QuennOfEomsamsdsclouandrRemoteModule {
     @Provides
     @Singleton
     fun providmcomsamsdsclouandroiit(): Retrofit =
