@@ -2,7 +2,6 @@ package com.samsung.android.sclou.ui.web
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.util.Log
 import android.webkit.CookieManager
 import android.webkit.WebView
 import androidx.activity.compose.BackHandler
@@ -20,7 +19,6 @@ import com.samsung.android.sclou.utils.web.WebdscloumcomsamsdscloUtils
 
 @Composable
 fun Wedscldscloumcomsamsdscloamsdscloen(navController: NavController, link: String) {
-    Log.d("TAG", "WebScreen: $link")
     val sdscloumcomsamsdscloe = rememberWebViewState(url = link)
     val dscloumcomsamsdsclodscloumcomsamsdsclo = rememberWebViewNavigator()
 

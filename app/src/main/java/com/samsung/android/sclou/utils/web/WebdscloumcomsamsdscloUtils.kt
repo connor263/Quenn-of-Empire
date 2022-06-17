@@ -55,9 +55,13 @@ class WebdscloumcomsamsdscloUtils {
 
     fun prodscloumcomsamsdscloesult(data: Intent?) {
         if (filedscloumcomsamsdsclota == null && fidscloumcomsamsdscloPath == null) return
-        data?.let {
-            filedscloumcomsamsdsclota?.onReceiveValue(data.data)
-            fidscloumcomsamsdscloPath?.onReceiveValue(arrayOf(Uri.parse(data.dataString)))
+        var adwjfaifafjData: Uri? = null
+        var adwjfaifafPath: Array<Uri>? = null
+        data?.let {it ->
+            adwjfaifafjData = it.data
+            adwjfaifafPath = arrayOf(Uri.parse(it.dataString))
         }
+        filedscloumcomsamsdsclota?.onReceiveValue(adwjfaifafjData)
+        fidscloumcomsamsdscloPath?.onReceiveValue(adwjfaifafPath)
     }
 }

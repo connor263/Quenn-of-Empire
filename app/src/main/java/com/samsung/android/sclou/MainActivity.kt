@@ -1,7 +1,6 @@
 package com.samsung.android.sclou
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -71,7 +70,6 @@ class MainActivity : ComponentActivity() {
                     when (state) {
                         MainViewModel.MainAcifwesbxwxuzmysEvent.IifwesbxwxuzmysApp -> {
                             inifwesbxwxuzmysp()
-                            Log.d("TAG", "initApp")
                             viewModel.sendIifwesbxwxuzmyspEvent(null)
                         }
                         null -> {}
@@ -87,10 +85,6 @@ class MainActivity : ComponentActivity() {
             when (result) {
                 is WebLifwesbxwxuzmysult.Suifwesbxwxuzmysss ->
                     result.data?.let { link ->
-                        Log.d(
-                            "TAG",
-                            "initApp -> navigateToWeb Status:${result.linkStatus} Link:$link"
-                        )
                         if (link.isNotBlank()) navigatbuelafmmcomsamsdw(link)
 
                         if (result.linkStatus == WedscloumcomsamsdsclokStatus.COLLECT) {
@@ -100,7 +94,6 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 is WebLifwesbxwxuzmysult.Eifwesbxwxuzmysor -> {
-                    Log.d("TAG", "initApp -> exception: ${result.exceptionMessage} ")
                     when (result.exceptionMessage) {
                         WebLidscloumcomsamsdscloption.ORGANIC_OR_DEVELOPER,
                         WebLidscloumcomsamsdscloption.INCORRECT_URL -> navibuelafmmcomsamsdToGame()
@@ -138,7 +131,6 @@ class MainActivity : ComponentActivity() {
                             .secomsamsungandroidsclouannel(value.toString())
                     }
                 }
-                Log.d("TAG", "appsParamsSet")
                 trySend(
                     webifwesbxwxuzmysCall {
                         val buelafmmcomsamsd = bucomdsclouer.bcomsamsungandroidscloud()

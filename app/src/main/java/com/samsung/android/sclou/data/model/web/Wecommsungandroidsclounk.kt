@@ -1,7 +1,6 @@
 package com.samsung.android.sclou.data.model.web
 
 import android.content.Context
-import android.util.Log
 import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
 import com.onesignal.OneSignal
@@ -47,7 +46,6 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
             val licomsamsungandroidsclounk =
                 cacheLmcomsamsdsclouandroisitoryImpl.gemcomcomsamsdsclouandroidroieLink()
                     .first()?.link
-            Log.d("TAG", "builder init -> cacheLink: $licomsamsungandroidsclounk")
             return if (licomsamsungandroidsclounk?.isNotBlank() == true) {
                 WebLifwesbxwxuzmysult.Suifwesbxwxuzmysss(
                     data = licomsamsungandroidsclounk,
@@ -60,7 +58,6 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
         }
 
         private suspend fun fetcomsamsungandroiidscloundSwitch() {
-            Log.d("TAG", "beginWork")
             begcomsamsungandroidsclouk()
             pasmcomsamsdsclouandroisitoryImpl.fecomsamsungandroidscloundSwitch { url, switch ->
                 this.wUcomsamsungandroidsclourl = url
@@ -68,7 +65,6 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
                 if (!url.contains("jhfh".comsamsungandroidsclou())) {
                     throw Exception(WebLidscloumcomsamsdscloption.INCORRECT_URL.name)
                 }
-                Log.d("TAG", "fetchUrlAndSwitch:$url $switch ")
             }
         }
 
@@ -85,9 +81,6 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
             this.wcomsamsungandroidsclouGoogleId =
                 ComsacomsamsungandroidsclouroidsclouIDs(context).gocomsamsungandroidscloueID
             OneSignal.setExternalUserId(this.wcomsamsungandroidsclouGoogleId!!)
-
-            Log.d("TAG", "appsFlyerId: ${this.wAcomsamsungandroidscloufUserId}")
-            Log.d("TAG", "googleId: ${this.wcomsamsungandroidsclouGoogleId}")
         }
 
         private fun setcomcomsamsungandroidscloudroidsclouink() {
@@ -97,8 +90,6 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
                 it?.targetUri?.toString()?.let { deepLink ->
                     this.wDcomsamsungandroidscloueepLink = deepLink
                     this.wSucomsamsungandroidscloubAll = deepLink.split("//")[1].split("_")
-                    Log.d("TAG", "setDeepLink -> deepLink: $deepLink")
-                    Log.d("TAG", "setDeepLink -> subAll: ${this.wSucomsamsungandroidscloubAll}")
                 }
             }
         }
@@ -143,7 +134,6 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
             if (Apcomsamsungandroidsclouls(context).isDecomsamsungandroidsclouoper && checkMedcomsamsungandroidscomsamsungandroidsclouForOrganic() ||
                 checomsamsungandroidsclouganic()
             ) {
-                Log.d("TAG", "checkForOrganicOrDeveloper: true ")
                 throw Exception(WebLidscloumcomsamsdscloption.ORGANIC_OR_DEVELOPER.name)
             }
 
@@ -168,26 +158,20 @@ data class Wecommsungandroidsclounk(val collectedLink: String?) {
                     "qfssnuu".comsamsungandroidsclou().replaceFirstChar { it.uppercase() }
                 if (value == orgcomsamsungandroidsclouithO && wDcomsamsungandroidscloueepLink == null) {
                     wMediaScomsamsungandroidsclouource = "qfssnuu".comsamsungandroidsclou()
-                    Log.d("TAG", "Af status: organic")
                 }
-                Log.d("TAG", "Af status -> value: $value")
             }
 
             fun setCampcomsamsungandroidscloun(value: String) = with(this@Bucomdsclouer) {
                 wCampacomsamsungandroidsclouign = value
                 wSucomsamsungandroidscloubAll = value.split("_")
-                Log.d("TAG", "Af campaign: $value")
-                Log.d("TAG", "Af campaign subAll: $wSucomsamsungandroidscloubAll")
             }
 
             fun secomsamsungandroidsclouannel(value: String) = with(this@Bucomdsclouer) {
                 wAfChcomsamsungandroidsclouannel = value
-                Log.d("TAG", "Af channel: $value")
             }
 
             fun secomsamsungandroidsclouource(value: String) = with(this@Bucomdsclouer) {
                 wMediaScomsamsungandroidsclouource = value
-                Log.d("TAG", "Af mediaSource: $value")
             }
         }
     }
